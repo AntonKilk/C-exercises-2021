@@ -8,37 +8,28 @@ void	ft_putchar(char c)
 
 void ft_print_comb(void)
 {
-    int x = 0;
-    int y = 1;
-    int z = 2;
-
-    while (x <= 9)
-    {
-        //if (x != z && x != y && y != z)
-        //{
-        printf("%d%d%d", x, y, z);
-        printf(", ");
-        //}
-         
-        while (y < 8)
-        {
-            //if (y != z && y != x)
-            //{
-                printf("%d%d%d", x, y, z);
-                printf(", ");
-            //}
-            y++;
-            while (z < 9)
-            {
-                //if (y != z && z != x)
-                //{
-                printf("%d%d%d", x, y, z);
-                printf(", ");
-                //}
+    char x = '0';
+    while (x<='9')
+    {   
+        char y = x + 1;
+        while (y <= '9')
+        {   
+            char z = y + 1;
+            while (z <= '9')
+            {   
+                ft_putchar(x);
+                ft_putchar(y);
+                ft_putchar(z);
+                if(x != '7')
+                {
+                    ft_putchar(',');
+                    ft_putchar(' ');
+                }              
                 z++;
-            }     
+            }
+            y++;
         }
-        x++;  
+        x++;
     }
 }
 
