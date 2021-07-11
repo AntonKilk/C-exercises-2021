@@ -9,24 +9,34 @@ char *last_letter(char *str)
     return str-1;
 }
 
-char *swap(char *str)
-{
-    int temp;
-    char first, last;
+int ft_strlen(char *str)
+{   
+    int length;
 
-    first = *str;
-    last = *last_letter(str);
+    length = 0;
+    while (*(str + length) != '\0')
+    {
+            length++;
+    }
+    return (length);
+}
 
-    temp = first;
-    first = last;
-    last = temp;
+void ft_swap(char *a, char *b)
+{   
+    char temp;
 
-    return str;
+    temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 int main (void)
-{   
-printf("%s\n", last_letter("hello, world"));
-printf("%s\n", swap("hello, world"));
-return 0;
+{
+    char str[] = "hello, world";
+    char *first = str;
+    char *last = last_letter(str);    
+    printf("%s\n", str);
+    ft_swap(first, last);
+    printf("%s\n", str);
+    return 0;
 }

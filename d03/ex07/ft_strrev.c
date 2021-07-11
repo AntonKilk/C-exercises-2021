@@ -12,47 +12,48 @@ int string_length(char *str)
     return length;
 }
 
+char *last_letter(char *str)
+{
+    while (*str != '\0')
+    {   
+        str++;
+    }
+    return str-1;
+}
+
+void ft_swap(char *a, char *b)
+{   
+    char temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 char *ft_strrev(char *str)
 {   
     char temp, *first_p, *last_p;
     int l, ii;
 
-    first_p = str;
-    last_p = str;
-    ii = 0;
-    l = string_length(str);
-    while (ii < l)
-    {   
-        last_p++;
-        ii++;
-    }
     
     ii = 0;
-    while ( ii < l/2)
+    l = string_length(str);
+    first_p = str;
+    last_p = last_letter(str);
+    while (ii < l/2)
     {   
-        temp = *last_p;
-        *last_p= *first_p;
-        *first_p = temp;
+        ft_swap(first_p, last_p);
         first_p++;
         last_p--;
         ii++;
     }
-
-    ii = 0;
-    while (ii < l)
-    {
-        str[ii]++;
-        ii++;
-
-    }
-    
     return str;
 }
 
 int main (void)
 {   
     // Get the string
-    char str[100] = "Hello, World!";
+    char str[100] = "123456789";
     printf("Length is: %d\n", string_length(str));
 
  
