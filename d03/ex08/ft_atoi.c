@@ -14,25 +14,22 @@ int ft_strlen(char *str)
 
 int ft_atoi (char *str)
 {   
-    int length, ii; 
+    int result; 
     
-    length = ft_strlen(str);
-    ii = 0;
+    result = 0;
 
-    while (ii < length)
-    {   
-        if( str[ii] > 47 && str[ii] < 58)
-        {
-            printf("%d", str[ii] - '0'); 
-        }
-        ii++;
+    while (*str >= '0' && *str <= '9')
+    {          
+        result *= 10;
+        result += *str - '0';
+        str++;
     }
-
-    return 1;
+    return result;
 }
+
 int main (void)
 {   
-char c[] = "123435abcd";
+char c[] = "01234567ab109cd";
 printf("%d\n", ft_atoi(c));
 return 0;
 }
