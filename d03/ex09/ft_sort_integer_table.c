@@ -8,7 +8,7 @@ void ft_swap(int *a, int *b)
     *b = temp;
 }
 
-int sort_integer_table(int *tab, int size)
+int ft_sort_integer_table(int *tab, int size)
 {
     int ii, jj, temp; 
 
@@ -20,9 +20,7 @@ int sort_integer_table(int *tab, int size)
         {   
             if (tab[jj-1] > tab[jj])
             {
-                temp = tab[jj-1];
-                tab[jj -1] = tab[jj];
-                tab [jj] = temp;
+                ft_swap(&tab[jj-1], &tab[jj]);
             }
             jj--;            
         }
@@ -40,7 +38,7 @@ int main(void)
         printf("%d \n", arr[i]);
         i++;
     }
-    sort_integer_table(arr, 10);
+    ft_sort_integer_table(arr, 10);
 
     printf("\nSorted array: \n");
     i = 0;

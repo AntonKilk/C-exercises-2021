@@ -33,19 +33,16 @@ void ft_swap(char *a, char *b)
 char *ft_strrev(char *str)
 {   
     char temp, *first_p, *last_p;
-    int l, ii;
+    int l;
 
-    
-    ii = 0;
     l = string_length(str);
     first_p = str;
     last_p = last_letter(str);
-    while (ii < l/2)
+    while (first_p < last_p)
     {   
         ft_swap(first_p, last_p);
         first_p++;
         last_p--;
-        ii++;
     }
     return str;
 }
