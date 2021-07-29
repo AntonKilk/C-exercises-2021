@@ -3,24 +3,20 @@
 
 char *ft_strupcase(char *str)
 {   
-    int ii;
-
-    ii = 0;
-    while (*str != '\0')
+    char *s = str;
+    while (*s != '\0')
     {   
-        printf("%c\n", *str);
-        if (*str >= 'a' && *str <= 'z')
+        if (*s >= 'a' && *s <= 'z')
         {   
-            printf("%c\n", *str);
-            str[ii] = str[ii] - 32;
+            *s += 'A'-'a';
         }
-        str++;
-        ii++;
+        s++;
     }
     return str;
 }
 
 int main(void)
-{
-    printf("%s", ft_strupcase("abcdefgh"));
+{   
+    char str[] = "ab cde 12 fgh";
+    printf("%s", ft_strupcase(str));
 }
